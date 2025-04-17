@@ -3,6 +3,11 @@ from app.layout import layout
 from app.callbacks import register_callbacks
 import dash_bootstrap_components as dbc
 
+
+from app import layout_promo
+from app import callbacks_promo
+
+
 app = Dash(__name__, external_stylesheets = [dbc.themes.BOOTSTRAP], suppress_callback_exceptions = True)
 app.layout = layout
 register_callbacks(app)

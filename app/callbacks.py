@@ -1,16 +1,9 @@
-from dash import Input, Output
-import plotly.express as px
-from .database import query_db
+import callbacks_promo
+import callbacks_performance
+
 
 
 def register_callbacks(app):
-    @app.callback(
-        Output("low-performing-stores-graph", "figure"),
-        Input("low-performing-stores-graph", "id")
-    )
-    def update_graph(_):
-        query = open("scripts/underperformers.sql").read()
-        df = query_db(query)
-        fig = px.bar(df, x = "Store", y = "avg_sales", title = "Underperforming Stores")
-        return fig
-    
+    callbacks_promo.register_callbacks(app)
+    callbacks_performance.register_callbacks(app)
+

@@ -1,0 +1,1 @@
+select Store, sum(sales) total_sales, sum(customers) from rossman group by Store having Promo = 1 order by total_sales  desc limit 10;
